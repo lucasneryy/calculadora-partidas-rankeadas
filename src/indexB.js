@@ -1,48 +1,46 @@
 let vitorias = 0
 let derrotas = 0
 
-let resultadoSaldoVitorias = saldoVitorias(vitorias, derrotas)
-let resultadoClassificacaoElo = classificacaoElo(resultadoSaldoVitorias)
+calculadora(vitorias, derrotas)
 
-function saldoVitorias(vitoria, derrota) {
-    saldo = vitoria - derrota
-    return saldo
-}
+function calculadora(v, d) {
+    let saldo = v - d
+    let elo 
 
-function classificacaoElo(i) {
     switch (true) {
-        case(i < 10):
-            return "Ferro"
+        case(saldo < 10):
+            elo = "Ferro"
             break
         
-        case(i >= 10) && (i < 20):
-            return "Bronze"
+        case(saldo >= 10) && (saldo < 20):
+            elo = "Bronze"
             break
 
-        case(i >= 20) && (i < 50):
-            return "Prata"
+        case(saldo >= 20) && (saldo < 50):
+            elo = "Prata"
             break
         
-        case(i >= 50) && (i < 80):
-            return "Ouro"
+        case(saldo >= 50) && (saldo < 80):
+            elo = "Ouro"
             break
             
-        case(i >= 80) && (i < 90):
-            return "Diamante"
+        case(saldo >= 80) && (saldo < 90):
+            elo = "Diamante"
             break
             
-        case(i >= 90) && (i <= 100):
-            return "Lendário"
+        case(saldo >= 90) && (saldo <= 100):
+            elo = "Lendário"
             break
         
-        case(i > 100):
-            return "Imortal"
+        case(saldo > 100):
+            elo = "Imortal"
             break
 
         default:
-            return "indefinido"
+            elo = "indefinido"
             break;
     }
-}
+    
+    console.log("O Herói tem de saldo de %s vitorias e está no nível %s", saldo, elo)
 
-console.log("O Herói tem de saldo de %s vitorias e está no nível %s", resultadoSaldoVitorias, resultadoClassificacaoElo)
+}
